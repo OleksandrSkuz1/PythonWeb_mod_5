@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "modul-5"
+version = "0.1.0"
+description = ""
+authors = ["OleksandrSkuz1 <138138803+OleksandrSkuz1@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.9.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
