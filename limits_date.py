@@ -10,6 +10,7 @@
     """
 
 import sys
+import asyncio
 from datetime import date
 from proccesing_date import clear_date
 
@@ -19,7 +20,7 @@ ERROR_FORMAT_DATE = " - date format must be 'dd.mm.yyyy' or 'yyyy.mm.dd'"
 ERROR_WRONG_DATE = " - the entered date is older than today"
 
 
-def _help():
+async def _help():
     print(
         f">>>\tformat: main <date> <days>",
         end="\t",
@@ -27,18 +28,18 @@ def _help():
     print("by default, you will receive the exchange rate for today")
 
 
-def parser():
+async def parser():
     """parsing"""
 
     _date, _days = str(date.today()), 1
 
     if len(sys.argv) == 1:
-        _help()
+        await _help()
 
     if len(sys.argv) == 2:
         try:
             if sys.argv[1].lower() == "help":
-                _help()
+                await _help()
             else:
                 _days = int(sys.argv[1])
         except ValueError:
@@ -57,3 +58,5 @@ def parser():
         )
 
     return clear_date(_date), _days
+
+
