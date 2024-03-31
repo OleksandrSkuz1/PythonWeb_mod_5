@@ -55,7 +55,7 @@ def extract_currency_data(data, currencies):
 async def main():
     currencies = ["EUR", "USD"]
 
-    _date, _days = parser()
+    _date, _days = await parser()
 
     dates = list_dates(_date, _days)
 
@@ -75,6 +75,7 @@ if __name__ == "__main__":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     asyncio.run(main())
+
 
 
 
