@@ -6,6 +6,7 @@
 Дотримуйтесь принципів SOLID під час написання завдання.
 Обробляйте коректно помилки при мережевих запитах."""
 
+# main.py
 import logging
 import asyncio
 import aiohttp
@@ -51,14 +52,14 @@ def extract_currency_data(data, currencies):
     return currency_data
 
 
-def main():
+async def main():
     currencies = ["EUR", "USD"]
 
     _date, _days = parser()
 
     dates = list_dates(_date, _days)
 
-    result = asyncio.run(gather_session(dates))
+    result = await gather_session(dates)
 
     output_data = []
     for date_data in result:
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     if platform.system() == "Windows":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-    main()
+    asyncio.run(main())
 
 
 
